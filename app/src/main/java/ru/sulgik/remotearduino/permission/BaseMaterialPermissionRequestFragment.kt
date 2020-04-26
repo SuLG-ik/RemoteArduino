@@ -17,7 +17,8 @@ import ru.sulgik.remotearduino.permission.def.DefaultPermissionRequestFragment
 
 abstract class BaseMaterialPermissionRequestFragment : BottomSheetDialogFragment() {
 
-    private lateinit var permissions : Array<MaterialPermission>
+    protected var permissions : Array<MaterialPermission> = emptyArray()
+        get() = field.rebuild(requireContext())
     private lateinit var token: String
     abstract fun onRequest(permissions: Array<MaterialPermission>)
 
