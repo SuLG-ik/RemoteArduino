@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".bluetooth.requestdevice.DevicesInitActivity"
+        android:padding="10sp">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/bt_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/progress_layout"
+            tools:listitem="@layout/device_item"
+            android:overScrollMode="never"/>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/progress_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/switcher"
+            android:paddingTop="10sp"
+            android:paddingBottom="10sp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:text="@string/tap_here_to_continue_discovering"
+                android:textSize="15sp"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <ProgressBar
+                android:id="@+id/discovering_state"
+                android:layout_weight="0"
+                android:layout_width="20sp"
+                android:layout_height="20sp"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switcher"
+            android:text="ON/OFF Bluetooth"
+            android:textSize="18sp"
+            android:textColor="@android:color/secondary_text_light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true" />
+
+    </RelativeLayout>
+</layout>

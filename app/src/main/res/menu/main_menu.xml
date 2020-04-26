@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/functionsFragment"
+        android:title="@string/functions"
+        android:icon="@drawable/ic_application_logo_dark"/>
+
+    <item android:id="@+id/devicesFragment"
+        android:title="@string/devices"
+        android:icon="@drawable/ic_developer_board"/>
+
+    <item android:id="@+id/accountFragment"
+        android:title="@string/account"
+        android:icon="@drawable/ic_person_outline_black_24dp" />
+
+</menu>

@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">RemoteArduino</string>
+    <string name="bounded">bounded</string>
+    <string name="unknown">unknown</string>
+    <string name="bounding">bounding</string>
+    <string name="unrelated">unrelated</string>
+
+    <string name="device_name_1">arduino</string>
+    <string name="device_name_2">hc-05</string>
+    <string name="device_name_3">hc-06</string>
+    <string name="device_name_4">пипка</string>
+    <string name="logo">logo</string>
+    <string name="hello_user">Hello user</string>
+    <string name="google">Google</string>
+    <string name="google_upper">GOOGLE</string>
+
+    <string name="default_google_web_token">1057597447477-02k56c3lq0cptjs11e1bo1vk2g63c7e4.apps.googleusercontent.com</string>
+    <string name="sign_up">Sign up</string>
+    <string name="log_in">Log in</string>
+    <string name="not_yet">not yet</string>
+    <string name="google_sign_in_error">Google account has not authorized</string>
+    <string name="authentication">Authentication</string>
+    <string name="wait">Wait...</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirm">Confirm</string>
+    <string name="remind_password">Remind password</string>
+    <string name="invalid_email">Malformed email</string>
+    <string name="different_passwords">Different passwords</string>
+    <string name="try_log_in">Try log in</string>
+    <string name="user_has_existed">The user already has existed</string>
+    <string name="you_are_signing_in">You are signing in</string>
+    <string name="internet_exception">Check internet connection</string>
+    <string name="check_email_password">Check email or password</string>
+    <string name="bluetooth_service">BluetoothService</string>
+    <string name="permissions">Permissions</string>
+    <string name="needed_permissions">Needed permissions</string>
+    <string name="confim">Confim</string>
+    <string name="location">Location</string>
+    <string name="location_description">After 6 bluetooth need location. Without this discovering wouldn\'t work</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="bluetooth_description">This is general permission for application</string>
+    <string name="choose_bluetooth_device">Choose bluetooth device</string>
+    <string name="tap_here_to_continue_discovering">Tap here to continue discovering</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="functions">Functions</string>
+    <string name="devices">Devices</string>
+    <string name="no_devices">No devices</string>
+    <string name="no_devices_description">There is no attached devices</string>
+    <string name="account">Account</string>
+    <string name="log_in_please">Log in, please</string>
+    <string name="create_profile">Create profile</string>
+    <string name="edit_profile">Edit profile</string>
+</resources>

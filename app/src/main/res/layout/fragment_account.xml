@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"/>
+
+        <variable
+            name="user"
+            type="com.google.firebase.auth.FirebaseUser" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".auth.AccountFragment"
+        android:orientation="vertical">
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center|top">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15sp"
+                        app:cardCornerRadius="150sp"
+                        app:cardElevation="0dp"
+                        android:elevation="0dp"
+                        app:cardMaxElevation="0dp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/tvProfileAvatar"
+                        android:layout_width="125sp"
+                        android:layout_height="125sp"
+                        app:uri="@{user.photoUrl}"
+                        android:src="@drawable/ic_account_circle_black_24dp"
+                        app:errorUri="@{@drawable/ic_account_circle_black_24dp}"/>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvProfileName"
+                        android:textSize="18sp"
+                        app:userName="@{user}"
+                        app:errorUserNameMessage="@{@string/log_in_please}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10sp"
+                        android:layout_marginBottom="10sp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnEditProfile"
+                        android:text="@string/edit_profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="@{user != null ? View.VISIBLE : View.GONE}"
+                        style="@style/AppButton"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnCreateProfile"
+                        android:text="@string/create_profile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="@{user == null ? View.VISIBLE : View.GONE}"
+                        style="@style/AppButton"/>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

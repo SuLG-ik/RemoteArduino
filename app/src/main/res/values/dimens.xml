@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="standard_padding">10sp</dimen>
+    <dimen name="line_width">100sp</dimen>
+    <dimen name="line_height">3dp</dimen>
+</resources>

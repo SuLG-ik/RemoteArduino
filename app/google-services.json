@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1057597447477",
+    "firebase_url": "https://remotearduino-96dcc.firebaseio.com",
+    "project_id": "remotearduino-96dcc",
+    "storage_bucket": "remotearduino-96dcc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1057597447477:android:bacc50eae347288d6ec07c",
+        "android_client_info": {
+          "package_name": "ru.sulgik.remotearduino"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1057597447477-miklt9hn1pmjttkm6asa0bceuftaetg2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ru.sulgik.remotearduino",
+            "certificate_hash": "fa5c15539c21178583432043d4e93f5ce7ce6a3b"
+          }
+        },
+        {
+          "client_id": "1057597447477-02k56c3lq0cptjs11e1bo1vk2g63c7e4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGW2qc20UymynzSj0PA7frIx-9Cc4VuzE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1057597447477-02k56c3lq0cptjs11e1bo1vk2g63c7e4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
