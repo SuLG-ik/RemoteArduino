@@ -79,6 +79,7 @@ abstract class BaseMaterialPermissionRequestFragment : BottomSheetDialogFragment
                 }
                 if (config.isBackgroundTransparent)
                     setStyle(DialogFragment.STYLE_NO_FRAME, R.style.AppBottomSheetDialogTheme)
+                isCancelable = config.isCancelable
             }
 
         companion object {

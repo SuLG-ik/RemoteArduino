@@ -36,6 +36,7 @@ class MainActivity : RemoteArduinoActivity(R.layout.activity_main){
 
         val permissionManager = MaterialPermissionManager()
 
+
         permissionManager.with(this, getBluetoothDiscoveringPermissions(this)){
             log.debug(it.joinToString { "${it.name} - ${it.state == PackageManager.PERMISSION_GRANTED}" })
         }
