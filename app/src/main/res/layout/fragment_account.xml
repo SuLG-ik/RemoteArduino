@@ -9,12 +9,13 @@
         <variable
             name="user"
             type="com.google.firebase.auth.FirebaseUser" />
+
     </data>
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".auth.AccountFragment"
+        tools:context=".ui.auth.AccountFragment"
         android:orientation="vertical">
 
 

@@ -8,18 +8,18 @@
 
     <fragment
         android:id="@+id/functionsFragment"
-        android:name="ru.sulgik.remotearduino.functions.FunctionsFragment"
+        android:name="ru.sulgik.remotearduino.ui.functions.FunctionsFragment"
         android:label="fragment_function"
         tools:layout="@layout/fragment_functions" />
 
     <fragment
         android:id="@+id/devicesFragment"
-        android:name="ru.sulgik.remotearduino.devices.DevicesFragment"
+        android:name="ru.sulgik.remotearduino.ui.devices.DevicesFragment"
         android:label="fragment_devices"
         tools:layout="@layout/fragment_devices" />
     <fragment
         android:id="@+id/accountFragment"
-        android:name="ru.sulgik.remotearduino.auth.AccountFragment"
+        android:name="ru.sulgik.remotearduino.ui.auth.AccountFragment"
         android:label="fragment_account"
         tools:layout="@layout/fragment_account" />
 

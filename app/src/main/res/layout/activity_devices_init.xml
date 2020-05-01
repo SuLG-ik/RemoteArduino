@@ -10,7 +10,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".bluetooth.requestdevice.DevicesInitActivity"
+        tools:context=".modules.bluetooth.requestdevice.DevicesInitActivity"
         android:padding="10sp">
 
         <androidx.appcompat.widget.LinearLayoutCompat

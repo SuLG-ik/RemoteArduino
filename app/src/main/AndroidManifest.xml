@@ -15,11 +15,15 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".bluetooth.SelectedDeviceActivity"></activity>
+        android:theme="@style/AppTheme"
+        android:name=".MainApplication">
+
+        <activity android:name="ru.sulgik.remotearduino.modules.bluetooth.SelectedDeviceActivity">
+
+        </activity>
 
         <service
-            android:name=".bluetooth.SenderService"
+            android:name="ru.sulgik.remotearduino.modules.bluetooth.SenderService"
             android:enabled="true"
             android:exported="false"
             android:label="@string/bluetooth_service">
@@ -28,9 +32,8 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".auth.RegistrationActivity" />
-        <activity android:name=".bluetooth.requestdevice.DevicesInitActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name="ru.sulgik.remotearduino.modules.bluetooth.requestdevice.DevicesInitActivity" />
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

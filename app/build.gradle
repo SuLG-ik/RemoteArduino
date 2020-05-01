@@ -3,6 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'koin'
 
 android {
     compileSdkVersion 29
@@ -63,9 +64,9 @@ dependencies {
     //navigation
 
     //firebase
-    implementation 'com.google.firebase:firebase-auth:19.3.0'
+    implementation 'com.google.firebase:firebase-auth:19.3.1'
     implementation 'com.google.android.gms:play-services-auth:18.0.0'
-    implementation 'com.google.firebase:firebase-firestore-ktx:21.4.2'
+    implementation 'com.google.firebase:firebase-firestore-ktx:21.4.3'
     //firebase
 
     //validators
@@ -81,12 +82,12 @@ dependencies {
     //picture downloader
 
     //fragments
-    implementation "androidx.navigation:navigation-runtime-ktx:2.3.0-alpha04"
-    implementation "androidx.navigation:navigation-fragment-ktx:2.3.0-alpha04"
+    implementation "androidx.navigation:navigation-runtime-ktx:2.3.0-alpha05"
+    implementation "androidx.navigation:navigation-fragment-ktx:2.3.0-alpha05"
     //fragments
 
     //extended navigation
-    implementation "androidx.navigation:navigation-ui-ktx:2.3.0-alpha04"
+    implementation "androidx.navigation:navigation-ui-ktx:2.3.0-alpha05"
     //extended navigation
 
     //room
@@ -113,5 +114,8 @@ dependencies {
     implementation 'com.tapadoo.android:alerter:5.1.2'
     //material alerter
 
+    implementation "org.koin:koin-android:$koin_version"
+    implementation "org.koin:koin-androidx-scope:$koin_version"
+    implementation "org.koin:koin-android-viewmodel:$koin_version"
 
 }

@@ -13,11 +13,8 @@
         <variable
             name="error_solution"
             type="String" />
-
-        <variable
-            name="authVM"
-            type="ru.sulgik.remotearduino.auth.AuthVM" />
     </data>
+
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -90,7 +87,6 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:textColor="@color/primaryText"
                             android:id="@+id/email"
-                            android:text="@={authVM.email}"
                             android:hint="@string/email"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -113,7 +109,6 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:textColor="@color/primaryText"
                             android:id="@+id/password"
-                            android:text="@={authVM.password1}"
                             android:hint="@string/password"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
