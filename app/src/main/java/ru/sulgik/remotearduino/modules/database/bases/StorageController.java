@@ -1,11 +1,13 @@
 package ru.sulgik.remotearduino.modules.database.bases;
 
-import androidx.lifecycle.LiveData;
-
-import ru.sulgik.remotearduino.modules.database.RemoteDevice;
+import androidx.annotation.NonNull;
 
 public abstract class StorageController {
 
-    public abstract LiveData<RemoteDevice> getAllDevices();
+    @NonNull
+    public abstract CatalogReference catalog(String path);
+
+    @NonNull
+    public abstract DataReference data(String path);
 
 }

@@ -11,13 +11,13 @@ interface Migration {
     val to : Long
 
     @Throws(MigrationException::class)
-    fun migrate(map: HashMap<Any, Any?>) : HashMap<Any, Any?>
+    fun migrate(map: HashMap<String, Any?>) : HashMap<String, Any?>
 
     class From1to2 : Migration{
         override val from: Long = 1
         override val to: Long = 2
 
-        override fun migrate(map: HashMap<Any, Any?>): HashMap<Any, Any?> {
+        override fun migrate(map: HashMap<String, Any?>): HashMap<String, Any?> {
             try {
                 val m = map[RemoteDevice.EXTRA_ID] as Long
                 map[RemoteDevice.EXTRA_PICTURE_URI] = m + 10

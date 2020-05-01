@@ -5,6 +5,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import org.json.JSONArray
+import org.json.JSONObject
+import org.json.JSONStringer
 import ru.sulgik.remotearduino.modules.database.RemoteDevice
 import ru.sulgik.remotearduino.modules.database.bases.AuthController
 import ru.sulgik.remotearduino.modules.database.bases.Database
@@ -14,12 +17,10 @@ class FireDevicesLiveData private constructor(private val auth : AuthController)
     private val firestore = Firebase.firestore
 
     override fun onActive() {
-        firestore.collection(FireStorage.LOCATION_USERS+ "/" + (auth.user?.authKey ?: return))
-            .addSnapshotListener { querySnapshot, firebaseFirestoreException ->
-                querySnapshot?.documents?.forEach {
-
-                }
-        }
+            firestore.collection("fasdf").document().addSnapshotListener{ it, e ->
+                it?.getTimestamp("as")
+            }
+        val a = JSONStringer()
     }
 
     fun getDevices() {

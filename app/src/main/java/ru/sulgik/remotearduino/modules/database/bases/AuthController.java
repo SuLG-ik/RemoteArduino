@@ -2,10 +2,8 @@ package ru.sulgik.remotearduino.modules.database.bases;
 
 import android.provider.ContactsContract;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.lifecycle.LifecycleOwner;
-
-import org.jetbrains.annotations.NotNull;
 
 import ru.sulgik.remotearduino.modules.tasks.Task;
 
@@ -16,11 +14,11 @@ public abstract class AuthController {
     @Nullable
     public abstract Profile getUser();
 
-    @NotNull
-    public abstract Task<Profile> signUp(@NotNull String email, @NotNull String password);
+    @NonNull
+    public abstract Task<Profile> signUp(@NonNull String email, @NonNull String password);
 
-    @NotNull
-    public abstract Task<Profile> sighIn(@NotNull String email, @NotNull String password);
+    @NonNull
+    public abstract Task<Profile> sighIn(@NonNull String email, @NonNull String password);
 
     public abstract void signOut();
     

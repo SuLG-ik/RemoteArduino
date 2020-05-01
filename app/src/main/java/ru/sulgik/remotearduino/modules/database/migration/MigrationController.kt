@@ -9,7 +9,7 @@ class MigrationController {
         Migration.From1to2()
     ).associateBy { it.from }
 
-    fun migrate(map: HashMap<Any, Any?>) : HashMap<Any, Any?>{
+    fun migrate(map: HashMap<String, Any?>) : HashMap<String, Any?>{
         var version = map[RemoteDevice.EXTRA_VERSION] as Long
         while (version < RemoteDevice.LAST_VERSION){
             val mig = migrations[version] ?: throw MigrationException(version.toString(), (version +1).toString(), 0)

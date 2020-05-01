@@ -1,15 +1,13 @@
 package ru.sulgik.remotearduino.modules.database.bases;
 
-import androidx.annotation.Nullable;
-
-import org.jetbrains.annotations.NotNull;
+import androidx.annotation.NonNull;
 
 public interface DatabasesController {
 
-    @NotNull
+    @NonNull
     Database getLocalDatabase();
 
-    @NotNull
+    @NonNull
     Database getRemoteDatabase();
 
 }
