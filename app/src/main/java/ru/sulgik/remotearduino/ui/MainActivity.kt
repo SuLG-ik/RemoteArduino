@@ -2,18 +2,19 @@ package ru.sulgik.remotearduino.ui
 
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
+import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
-import com.google.android.gms.tasks.Task
-import com.google.android.gms.tasks.Tasks
-import com.tapadoo.alerter.Alerter
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.inject
+import org.koin.android.viewmodel.ext.android.viewModel
 import ru.sulgik.remotearduino.R
 import ru.sulgik.remotearduino.modules.bluetooth.BluetoothManager
-import ru.sulgik.remotearduino.modules.database.bases.DatabasesController
+import ru.sulgik.remotearduino.modules.database.devices.DevicesViewModel
+import ru.sulgik.remotearduino.modules.database.devices.IDevicesViewModel
+import ru.sulgik.remotearduino.modules.database.pojo.RemoteDevice
 import ru.sulgik.remotearduino.modules.log.LogService
 import ru.sulgik.remotearduino.modules.log.SystemLog
 import ru.sulgik.remotearduino.modules.permission.PermissionManager
@@ -25,8 +26,9 @@ class MainActivity : RemoteArduinoActivity(
 
     val bluetooth : BluetoothManager by inject()
     val permissionManager : PermissionManager by inject()
-    val database : DatabasesController by inject()
-    val remote get() = database.remoteDatabase
+
+    val devices : IDevicesViewModel by viewModel<DevicesViewModel>()
+
     lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,21 +37,10 @@ class MainActivity : RemoteArduinoActivity(
         )
         NavigationUI.setupWithNavController(bottomNavigation, navController)
 
-        remote.authController.signUp("sosnimoihui", "UopsdfIQpjf4").addOnSuccessListener(this, Listener {
-            log.debug("onSuccess")
-            Toast.makeText(this, it.uid, Toast.LENGTH_SHORT).show()
-        }).addOnFailedListener(this, Listener {
-            log.debug("onFailed", it.message)
-            }
-        ).addOnCompleteListener(this, Listener {
-            log.debug("onComplete")
-        })
-
-
     }
 
     private fun userCheck(){
-        if(remote.user == null && !Alerter.isShowing){
+//        if(remote.user == null && !Alerter.isShowing){
 //            notifyLayout.show(NotifyTask.create {
 //                text = "Ti lox text"
 //                title = "sosi"
@@ -58,7 +49,7 @@ class MainActivity : RemoteArduinoActivity(
 //                    Snackbar.make(bottomNavigation, "Lox", Snackbar.LENGTH_SHORT)
 //                }
 //            })
-        }
+//        }
     }
 
     override val TAG: String

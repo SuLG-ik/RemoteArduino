@@ -1,15 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.devices.DevicesFragment"
-    android:background="@android:color/darker_gray">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:textSize="36sp"
+    <data>
+
+    </data>
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="New Device Fragment" />
+        tools:context=".ui.devices.DevicesFragment"
+        android:background="@android:color/darker_gray">
 
-</FrameLayout>
+        <TextView
+            android:textSize="36sp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="New Device Fragment" />
+
+        <Button
+            android:id="@+id/add_device"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom" />
+
+
+    </FrameLayout>
+</layout>
