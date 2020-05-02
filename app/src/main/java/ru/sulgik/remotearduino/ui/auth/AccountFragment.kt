@@ -2,34 +2,28 @@ package ru.sulgik.remotearduino.ui.auth
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.activityViewModels
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import com.google.firebase.auth.FirebaseAuth
+import org.koin.android.ext.android.inject
 import ru.sulgik.remotearduino.R
 import ru.sulgik.remotearduino.databinding.FragmentAccountBinding
+import ru.sulgik.remotearduino.modules.authentication.AuthService
+import ru.sulgik.remotearduino.modules.delegate.viewBindings
 
-/**
- * A simple [Fragment] subclass.
- */
-class AccountFragment : Fragment() {
+class AccountFragment : Fragment(R.layout.fragment_account) {
 
-    lateinit var binding : FragmentAccountBinding
+    val binding by viewBindings(FragmentAccountBinding::bind)
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_account, container, false)
+    val auth by inject<AuthService>()
 
-
-
-        return binding.root
-    }
-
-    private fun updateUI(){
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val controller = Navigation.findNavController(view)
+        binding.btnCreateProfile.setOnClickListener {
+            controller.navigate(R.id.action_accountFragment_to_createAccountFragment)
+        }
     }
 
 }
+

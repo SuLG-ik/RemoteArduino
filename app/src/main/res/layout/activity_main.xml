@@ -6,17 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.MainActivity"
     android:orientation="vertical"
-    android:animateLayoutChanges="false">
-
-
-<!--    <ru.sulgik.remotearduino.modules.notify.Notify-->
-<!--        android:id="@+id/notifyLayout"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_gravity="top"-->
-<!--        app:layout_anchorGravity="top"-->
-<!--        android:foregroundGravity="top"-->
-<!--        />-->
+    android:animateLayoutChanges="true">
 
     <fragment
         android:id="@+id/fragmentNav"

@@ -1,42 +1,48 @@
 package ru.sulgik.remotearduino.modules.database.devices
 
 import androidx.lifecycle.LiveData
-import com.google.firebase.firestore.util.Util
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import ru.sulgik.remotearduino.modules.database.GeneralRepository
-import ru.sulgik.remotearduino.modules.database.GeneralRepository.autoId
-import ru.sulgik.remotearduino.modules.database.pojo.RemoteDevice
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import ru.sulgik.remotearduino.modules.authentication.AuthKeyOwner
+import ru.sulgik.remotearduino.modules.authentication.AuthService
 import ru.sulgik.remotearduino.modules.database.live.livedata
-import ru.sulgik.remotearduino.modules.tasks.MutableTask
+import ru.sulgik.remotearduino.modules.database.utils.autoId
+import ru.sulgik.remotearduino.modules.database.pojo.RemoteDevice
 import ru.sulgik.remotearduino.modules.tasks.Task
 import ru.sulgik.remotearduino.modules.tasks.toOther
-import java.lang.Exception
 
-class DevicesRepository : IDevicesRepository {
+class DevicesRepository (private val owner : AuthKeyOwner) {
 
-    fun checkDeviceIdNotEmpty(device: RemoteDevice){
+    val location get() = Firebase.firestore.collection(LOCATION_USERS).document(owner.key)
+
+
+    private fun checkDeviceIdNotEmpty(device: RemoteDevice){
         if (device.id == "") {
             device.id = autoId()
         }
     }
 
-    override fun getDevices() : LiveData<List<RemoteDevice>> = devicesLocation.livedata(RemoteDevice::class.java)
+    fun getDevices() : LiveData<List<RemoteDevice>> = devicesLocation.livedata(RemoteDevice::class.java)
 
-    private val devicesLocation get() =  GeneralRepository.userLocation.collection(RemoteDevice.LOCATION)
+    private val devicesLocation get() =  location.collection(RemoteDevice.LOCATION)
 
-    override fun getDeviceById(id : String)   = devicesLocation.document(id).livedata(RemoteDevice::class.java)
+    fun getDeviceById(id : String)   = devicesLocation.document(id).livedata(RemoteDevice::class.java)
 
-    override fun insert(device : RemoteDevice) : Task<Void> {
+    fun insert(device : RemoteDevice) : Task<Void> {
         checkDeviceIdNotEmpty(device)
         return devicesLocation.document(device.id).set(device).toOther()
     }
 
-    override fun delete(device: RemoteDevice): Task<Void> {
+    fun delete(device: RemoteDevice): Task<Void> {
         return deleteDeviceById(device.id)
     }
 
-    override fun deleteDeviceById(id : String): Task<Void> {
+    fun deleteDeviceById(id : String): Task<Void> {
         return devicesLocation.document(id).delete().toOther()
+    }
+
+    companion object{
+        const val LOCATION_USERS = "users/"
     }
 
 }

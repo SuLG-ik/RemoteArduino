@@ -2,20 +2,12 @@ package ru.sulgik.remotearduino.modules.database
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.firestore.util.Util
 import com.google.firebase.ktx.Firebase
 import java.security.SecureRandom
 
-object GeneralRepository{
+object utils{
 
     val rand = SecureRandom()
-
-    const val LOCATION_USERS = "users/"
-
-    val uid get() = (FirebaseAuth.getInstance().currentUser?.uid ?: "1only_read_repository") + "/"
-
-    val userLocation = Firebase.firestore.collection(LOCATION_USERS).document(uid)
-
 
     fun autoId(): String {
         val builder = StringBuilder()
@@ -29,4 +21,5 @@ object GeneralRepository{
 
         return builder.toString()
     }
+
 }

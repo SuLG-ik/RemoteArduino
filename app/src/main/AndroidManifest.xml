@@ -10,7 +10,7 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -18,7 +18,12 @@
         android:theme="@style/AppTheme"
         android:name=".MainApplication">
 
-        <activity android:name="ru.sulgik.remotearduino.modules.bluetooth.SelectedDeviceActivity">
+        <activity android:name=".ui.MainActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
 
         </activity>
 
@@ -32,14 +37,5 @@
             </intent-filter>
         </service>
 
-        <activity android:name="ru.sulgik.remotearduino.modules.bluetooth.requestdevice.DevicesInitActivity" />
-        <activity android:name=".ui.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
     </application>
-
 </manifest>

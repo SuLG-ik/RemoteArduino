@@ -25,16 +25,6 @@ abstract class RemoteArduinoActivity  (@LayoutRes val resId : Int): AppCompatAct
 
     abstract val TAG: String
 
-    @CallSuper
-    override fun onDestroy() {
-        super.onDestroy()
-    }
-
-    @CallSuper
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     interface ActivityCallback {
 
         @CallSuper
@@ -66,22 +56,6 @@ abstract class RemoteArduinoActivity  (@LayoutRes val resId : Int): AppCompatAct
         fun toFinishFragment()
 
 
-    }
-
-    @MainThread
-    protected fun <T : ViewDataBinding> viewDataBindings(@LayoutRes resId: Int) =
-        DataBindingProperty<T>(
-            resId
-        )
-
-    protected class DataBindingProperty<out T : ViewDataBinding>(@LayoutRes private val resId: Int) :
-        ReadOnlyProperty<Activity, T> {
-        private var binding: T? = null
-
-        override fun getValue(thisRef: Activity, property: KProperty<*>): T =
-            binding ?: DataBindingUtil.setContentView<T>(thisRef, resId).also {
-                binding = it
-            }
     }
 
     companion object {

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    android:id="@+id/sceneToRoot"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".ui.auth.SignUpFragment"
+    style="@style/AppBottomSheetDialogTheme"
+    android:padding="15sp"
+    android:animateLayoutChanges="true">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:text="@string/sign_up"
+        android:textSize="35sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <View
+        android:layout_gravity="center"
+        android:layout_width="150sp"
+        android:layout_height="2dp"
+        android:background="@drawable/line_shape"
+        android:layout_marginTop="7.5sp"/>
+
+    <include
+        android:id="@+id/sceneRoot"
+        layout="@layout/fragment_sign_up_email"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

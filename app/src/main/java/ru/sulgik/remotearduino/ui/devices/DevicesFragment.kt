@@ -2,39 +2,28 @@ package ru.sulgik.remotearduino.ui.devices
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
-import kotlinx.android.synthetic.main.device_item.*
-import org.koin.android.ext.android.bind
+import android.widget.Toast
 import org.koin.android.viewmodel.ext.android.sharedViewModel
-import org.koin.android.viewmodel.ext.android.viewModel
-
 import ru.sulgik.remotearduino.R
 import ru.sulgik.remotearduino.databinding.FragmentDevicesBinding
 import ru.sulgik.remotearduino.modules.database.devices.DevicesViewModel
-import ru.sulgik.remotearduino.modules.database.devices.IDevicesViewModel
-import ru.sulgik.remotearduino.modules.database.pojo.RemoteDevice
+import ru.sulgik.remotearduino.modules.delegate.viewBindings
 
-class DevicesFragment : Fragment() {
+class DevicesFragment : Fragment(R.layout.fragment_devices) {
 
-    val devices : IDevicesViewModel by sharedViewModel<DevicesViewModel>()
+    val devices : DevicesViewModel by sharedViewModel()
 
-    var count = 0
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    val binding by viewBindings(FragmentDevicesBinding::bind)
 
-        val binding = DataBindingUtil.inflate<FragmentDevicesBinding>(inflater, R.layout.fragment_devices, container, false)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
 
         binding.addDevice.setOnClickListener {
-            devices.insert(RemoteDevice(name = count.toString()))
-            count++
+            Toast.makeText(requireContext(), "Click", Toast.LENGTH_SHORT).show()
         }
 
-        return binding.root
+
     }
 
 }
