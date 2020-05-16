@@ -3,44 +3,48 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_graph"
-    app:startDestination="@id/functionsFragment"
-    tools:ignore="UnusedNavigation">
+    app:startDestination="@id/homeFragment">
 
-    <fragment
-        android:id="@+id/functionsFragment"
-        android:name="ru.sulgik.remotearduino.ui.functions.FunctionsFragment"
-        android:label="fragment_function"
-        tools:layout="@layout/fragment_functions" />
+    <navigation
+        android:id="@+id/devicesGraph"
+        app:startDestination="@id/devicesFragment" >
+        <fragment
+            android:id="@+id/devicesFragment"
+            android:name="ru.sulgik.remotearduino.ui.devices.DevicesFragment"
+            android:label="DevicesFragment" />
+    </navigation>
 
-    <fragment
-        android:id="@+id/devicesFragment"
-        android:name="ru.sulgik.remotearduino.ui.devices.DevicesFragment"
-        android:label="fragment_devices"
-        tools:layout="@layout/fragment_devices" />
-    <fragment
-        android:id="@+id/accountFragment"
-        android:name="ru.sulgik.remotearduino.ui.auth.AccountFragment"
-        android:label="fragment_account"
-        tools:layout="@layout/fragment_account" >
-        <action
-            android:id="@+id/action_accountFragment_to_createAccountFragment"
-            app:destination="@id/createAccountFragment" />
-    </fragment>
+    <navigation
+        android:id="@+id/functionsGraph"
+        app:startDestination="@id/functionsFragment" >
 
-    <fragment
-        android:id="@+id/createAccountFragment"
-        android:name="ru.sulgik.remotearduino.ui.auth.CreateAccountFragment"
-        android:label="CreateAccountFragment" >
-        <action
-            android:id="@+id/action_createAccountFragment_to_signUpFragment"
-            app:destination="@id/signUpFragment" />
-    </fragment>
+        <fragment
+            android:id="@+id/functionsFragment"
+            android:name="ru.sulgik.remotearduino.ui.functions.FunctionsFragment"
+            android:label="fragment_functions"
+            tools:layout="@layout/fragment_functions" />
 
-    <dialog
-        android:id="@+id/signUpFragment"
-        android:name="ru.sulgik.remotearduino.ui.auth.SignUpFragment"
-        android:label="fragment_sign_up"
-        tools:layout="@layout/fragment_sign_up" />
+    </navigation>
 
+    <navigation
+        android:id="@+id/homeGraph"
+        app:startDestination="@id/homeFragment" >
+
+        <fragment
+            android:id="@+id/homeFragment"
+            android:name="ru.sulgik.remotearduino.ui.home.HomeFragment"
+            android:label="fragment_home"
+            tools:layout="@layout/fragment_home" />
+
+    </navigation>
+
+    <navigation
+        android:id="@+id/accountGraph"
+        app:startDestination="@id/accountFragment" >
+        <fragment
+            android:id="@+id/accountFragment"
+            android:name="ru.sulgik.remotearduino.ui.auth.AccountFragment"
+            android:label="AccountFragment" />
+    </navigation>
 
 </navigation>

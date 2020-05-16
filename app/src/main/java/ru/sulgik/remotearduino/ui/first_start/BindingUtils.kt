@@ -1,4 +1,4 @@
-package ru.sulgik.remotearduino.ui.auth
+package ru.sulgik.remotearduino.ui.first_start
 
 import android.graphics.drawable.Drawable
 import android.net.Uri

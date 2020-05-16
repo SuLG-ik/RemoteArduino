@@ -9,7 +9,7 @@ import ru.sulgik.remotearduino.modules.database.devices.DevicesRepository
 import ru.sulgik.remotearduino.modules.database.devices.DevicesViewModel
 import ru.sulgik.remotearduino.modules.permission.MaterialPermissionManager
 
-val globalModule = module {
+val permissions = module {
     single { MaterialPermissionManager() }
 }
 
@@ -24,8 +24,7 @@ val auth = module {
 val database = module{
     viewModel {
         DevicesViewModel(
-            androidApplication(),
-            DevicesRepository(get<AuthService>())
+            androidApplication()
         )
     }
 }

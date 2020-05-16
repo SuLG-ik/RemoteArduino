@@ -6,8 +6,9 @@ import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 import org.koin.core.logger.Level
 import ru.sulgik.remotearduino.koin.auth
+import ru.sulgik.remotearduino.koin.connectivity
 import ru.sulgik.remotearduino.koin.database
-import ru.sulgik.remotearduino.koin.globalModule
+import ru.sulgik.remotearduino.koin.permissions
 
 class MainApplication : Application() {
     override fun onCreate() {
@@ -16,7 +17,12 @@ class MainApplication : Application() {
         startKoin {
             androidLogger(Level.DEBUG)
             androidContext(this@MainApplication)
-            modules(globalModule, database, auth)
+            modules(
+                permissions,
+                database,
+                auth,
+                connectivity
+            )
         }
     }
 }

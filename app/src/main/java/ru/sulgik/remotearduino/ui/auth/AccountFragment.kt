@@ -19,10 +19,7 @@ class AccountFragment : Fragment(R.layout.fragment_account) {
     val auth by inject<AuthService>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val controller = Navigation.findNavController(view)
-        binding.btnCreateProfile.setOnClickListener {
-            controller.navigate(R.id.action_accountFragment_to_createAccountFragment)
-        }
+
     }
 
 }

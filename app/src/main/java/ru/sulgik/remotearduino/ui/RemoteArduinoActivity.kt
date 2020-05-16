@@ -23,6 +23,8 @@ import kotlin.reflect.KProperty
 
 abstract class RemoteArduinoActivity  (@LayoutRes val resId : Int): AppCompatActivity(resId) {
 
+    protected val sharedPreferences get() = getSharedPreferences(SHARED_PREFERENCE, Context.MODE_PRIVATE)
+
     abstract val TAG: String
 
     interface ActivityCallback {
@@ -60,6 +62,8 @@ abstract class RemoteArduinoActivity  (@LayoutRes val resId : Int): AppCompatAct
 
     companion object {
         const val FINISH_FRAGMENT = "finish_fragment:198461"
+
+        const val SHARED_PREFERENCE = "global_prefs"
 
         fun createSpring(
             view: View,

@@ -7,12 +7,13 @@ import androidx.lifecycle.asLiveData
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.ListenerRegistration
+import com.google.firebase.firestore.Query
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import java.lang.Exception
 
 fun <T> DocumentReference.livedata(clazz: Class<T>) : LiveData<Result<T>> = DocumentLiveData(this, clazz)
 
-fun <T> CollectionReference.livedata(clazz: Class<T>) : LiveData<List<T>> = CollectionLiveData(this, clazz)
+fun <T> Query.livedata(clazz: Class<T>) : LiveData<List<T>> = CollectionLiveData(this, clazz)
 
 
 class DocumentLiveData<T>(private val document: DocumentReference, private val clazz: Class<T>) : LiveData<Result<T>>() {
@@ -48,7 +49,7 @@ class DocumentLiveData<T>(private val document: DocumentReference, private val c
 
 }
 
-class CollectionLiveData<T>(private val collection: CollectionReference, private val clazz: Class<T>) : LiveData<List<T>>() {
+class CollectionLiveData<T>(private val collection: Query, private val clazz: Class<T>) : LiveData<List<T>>() {
 
     private val handler = Handler()
     private var reg : ListenerRegistration? = null

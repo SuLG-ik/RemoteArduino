@@ -5,7 +5,8 @@
         android:color="@color/fragment_background_color"/>
 
     <corners
-        android:radius="25sp"/>
+        android:topRightRadius="15sp"
+        android:topLeftRadius="15sp"/>
     <padding
         android:top="@dimen/standard_padding"
         android:bottom="@dimen/standard_padding"

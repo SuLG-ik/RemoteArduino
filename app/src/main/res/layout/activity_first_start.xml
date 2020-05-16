@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.first_start.FirstStartActivity"
+        android:orientation="vertical">
+
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:columnCount="2"
+            android:rowCount="2"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_margin="25sp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                app:srcCompat="@drawable/rounded_empty_shape"
+                android:padding="15sp" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                app:srcCompat="@drawable/rounded_empty_shape"
+                android:padding="15sp" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                app:srcCompat="@drawable/rounded_empty_shape"
+                android:padding="15sp" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                app:srcCompat="@drawable/rounded_empty_shape"
+                android:padding="15sp" />
+
+
+        </GridLayout>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnStart"
+            android:text="@string/start"
+            android:layout_margin="10sp"
+            android:layout_weight="0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/AppButton" />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

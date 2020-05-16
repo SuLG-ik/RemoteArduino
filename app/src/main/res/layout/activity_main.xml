@@ -25,6 +25,7 @@
         android:layout_gravity="bottom"
         app:menu="@menu/main_menu"
         android:layout_alignParentBottom="true"
+        style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
         />
 
 

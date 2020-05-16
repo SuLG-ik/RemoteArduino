@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.inject
 import ru.sulgik.remotearduino.R
@@ -16,14 +17,17 @@ class MainActivity : RemoteArduinoActivity(
     R.layout.activity_main
 ){
 
-    val bluetooth : BluetoothManager by inject()
-    val permissionManager : PermissionManager by inject()
+    private val bluetooth : BluetoothManager by inject()
+    private val permissionManager : PermissionManager by inject()
 
-    lateinit var navController: NavController
+    private val navController: NavController by lazy (LazyThreadSafetyMode.NONE) {
+        Navigation.findNavController(this, R.id.fragmentNav)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        navController = Navigation.findNavController(this, R.id.fragmentNav)
-        NavigationUI.setupWithNavController(bottomNavigation, navController)
+
+        NavigationUI.setupWithNavController(findViewById<BottomNavigationView>(R.id.bottomNavigation), navController)
     }
 
     override val TAG: String
