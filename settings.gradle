@@ -1,2 +1,5 @@
 rootProject.name='RemoteArduino'
 include ':app'
+include ':common'
+include ':abstract-repository'
+include ':authentication'

@@ -44,9 +44,7 @@ class ChoiceTheMethodOfAuthActivity : RemoteArduinoActivity(R.layout.activity_ch
     override val TAG: String
         get() = "ChoiceTheMethodOfAuthActivity"
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-    }
+    override fun onBackPressed() {}
     companion object{
         const val TAG_REQUEST_FRAGMENT = "request_fragment_tag"
     }
