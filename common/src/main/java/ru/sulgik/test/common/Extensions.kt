@@ -2,6 +2,7 @@ package ru.sulgik.test.common
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import kotlinx.coroutines.flow.flow
 import ru.sulgik.test.common.coroutines.UseCase
 import ru.sulgik.test.common.events.EventResult
 import java.lang.Exception
@@ -14,25 +15,25 @@ typealias OnCancelListener = () -> Unit
 typealias MutableLiveEvent <T> = MutableLiveData<EventResult<T>>
 typealias LiveEvent<T> = LiveData<EventResult<T>>
 
-fun <T>EventResult<T>.doIfSuccess(block : (result : T) -> Unit){
+inline fun <T>EventResult<T>.doIfSuccess(block : (result : T) -> Unit){
     if (this.isSuccess){
-        block.invoke(this.getOrNull!!)
+        block.invoke(this.getOrNull ?: throw IllegalArgumentException("EventResult can't have a null"))
     }
 }
 
-fun <T>EventResult<T>.doIfFailure(block : (result : Exception) -> Unit) {
+inline fun <T>EventResult<T>.doIfFailure(block : (result : Exception) -> Unit) {
     if (this.isFailure) {
-        block.invoke(this.exceptionOrNull!!)
+        block.invoke(this.exceptionOrNull?: throw IllegalArgumentException("EventResult can't have a null"))
     }
 }
 
-fun <T>EventResult<T>.doIfCancel(block : () -> Unit) {
+inline fun <T>EventResult<T>.doIfCancel(block : () -> Unit) {
     if (this.isCancel) {
         block.invoke()
     }
 }
 
-fun <T>EventResult<T>.doIfStart(block : () -> Unit) {
+inline fun <T>EventResult<T>.doIfStart(block : () -> Unit) {
     if (this.isLoading) {
         block.invoke()
     }

@@ -41,11 +41,11 @@ abstract class UseCase<Type, Params> {
         clearCommand()
     }
 
-    internal fun emitValue(value : Type){
+    private fun emitValue(value : Type){
         command?.emitValue(value)
     }
 
-    internal fun emitException(e : Exception){
+    private fun emitException(e : Exception){
         command?.emitException(e)
     }
 
